@@ -1,0 +1,3 @@
+package: github.com/jackzampolin/go-kube-test
+import:
+- package: github.com/gorilla/mux

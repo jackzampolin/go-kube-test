@@ -2,6 +2,8 @@ package main
 
 import (
 	"flag"
+	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -10,7 +12,8 @@ import (
 var port *string
 
 func init() {
-	flag.StringVar(port, "port", "3000", "set app port")
+	port = flag.String("port", "3000", "set app port")
+	flag.Parse()
 }
 
 func main() {
@@ -18,8 +21,8 @@ func main() {
 	// Routes consist of a path and a handler function.
 	r.HandleFunc("/", HelloWorldHandler)
 
-	// Bind to a port and pass our router in
-	http.ListenAndServe(*port, r)
+	log.Printf("Listening on port :%v", *port)
+	http.ListenAndServe(fmt.Sprintf(":%v", *port), r)
 }
 
 // HelloWorldHandler is a HelloWorldHandler
