@@ -12,7 +12,7 @@ import (
 var port *string
 
 func init() {
-	port = flag.String("port", "3000", "set app port")
+	port = flag.String("port", "8080", "set app port")
 	flag.Parse()
 }
 
@@ -28,4 +28,5 @@ func main() {
 // HelloWorldHandler is a HelloWorldHandler
 func HelloWorldHandler(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("Hello World\n"))
+	log.Printf("GET / %v", http.StatusOK)
 }

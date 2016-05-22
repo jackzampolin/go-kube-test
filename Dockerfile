@@ -13,4 +13,4 @@ WORKDIR $GOPATH/src/github.com/jackzampolin/go-kube-test/
 RUN go build -o go-kube-test hello.go
 
 # Run app on port 80
-CMD ["./go-kube-test", "-port", "80"]
+CMD ["./go-kube-test", "-port", "8080"]
